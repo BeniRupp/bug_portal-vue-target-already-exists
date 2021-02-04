@@ -1,34 +1,11 @@
-# vue-portal-bug
+# Bug when testing portal-vue with vue-test-utils
 
-## Project setup
-```
-yarn install
-```
+A unit test which is mounting a component with a `portal-target` pollutes the state of a following unit test.
+Although, each unit test uses its own `localVue` instance.
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+Both unit tests mount a component with a `portal-target` with name `"berlin"`.
+The second test prints the following warning:
 
-### Compiles and minifies for production
 ```
-yarn run build
+[portal-vue]: Target berlin already exists
 ```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Run your unit tests
-```
-yarn run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

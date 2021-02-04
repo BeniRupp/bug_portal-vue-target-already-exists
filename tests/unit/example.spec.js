@@ -1,12 +1,25 @@
-import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import {createLocalVue, mount} from "@vue/test-utils"
+import PortalVue from 'portal-vue'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
-    })
-    expect(wrapper.text()).toMatch(msg)
+describe('example', () => {
+  it('first', () => {
+    const localVue = createLocalVue()
+    localVue.use(PortalVue)
+    const w = mount(
+        {
+          template: '<div><portal-target name="berlin"></portal-target></div>',
+        },
+        { localVue }
+    )
+  })
+  it('second', () => {
+    const localVue = createLocalVue()
+    localVue.use(PortalVue)
+    const w = mount(
+        {
+          template: '<div><portal-target name="berlin"></portal-target></div>',
+        },
+        { localVue }
+    )
   })
 })
